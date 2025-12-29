@@ -1,12 +1,12 @@
 
-def menu(choices, title, quest):
+def menu(choices, title, question):
    print(title)
    count = 1
    for i in choices:
        print('{}.{}'.format(count,i))
        count += 1
-   choice = input(quest)
-   print('-------------')
+   choice = input(question)
+   print('-' * len(question))
    return choices[int(choice) - 1]
 
 
