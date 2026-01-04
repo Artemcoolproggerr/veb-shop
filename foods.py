@@ -12,7 +12,11 @@ def menu(choices, title, question):
        allowed_answers = []
        for i in range(1, len(choices) + 1):
            allowed_answers.append(str(i))
+       allowed_answers.append('x')
        if choice in allowed_answers:
+           if choice == 'x':
+               answer = '----------'
+               break
            answer = choices[int(choice) - 1]
            break
        else:
