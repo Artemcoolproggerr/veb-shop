@@ -1,14 +1,12 @@
 def menu_from_files(name_file):
-    choices = open(name_file,'r',encoding='utf-8')
+    choices = open(name_file,'r', encoding='utf-8')
     result = []
     reading = choices.readlines()
     for i in reading:
         result.append(i.rstrip('\n'))
     return result
 
-
-
-
+name_user = input('Пожалуйста напишите как вас зовут: ')
 
 def menu(choices, title, question):
    print(title)
@@ -36,18 +34,20 @@ def menu(choices, title, question):
    return answer
 
 
+def get_order():
+    food = menu_from_files('main food.txt')
+    salads = menu_from_files('salads.txt')
+    drinks = menu_from_files('drinks.txt')
+    main_food = menu(food, 'основные блюда:', 'выберите основное блюдо: ')
+    my_salad = menu(salads, 'салаты:', 'выберите салат: ')
+    my_drink = menu(drinks, 'напитки:', 'выберите напиток: ')
+    # print('{} ваш заказ:'.format(name_user))
+    # print('основное блюдо: {}'.format(main_food))
+    # print('салаты: {}'.format(my_salad))
+    # print('напиток: {}'.format(my_drink))
+    order = {'name':name_user,'main food':main_food,'salad':my_salad,'drink':my_drink}
+    return order
 
-
-food = menu_from_files('main food.txt')
-salads = menu_from_files('salads.txt')
-drinks = menu_from_files('drinks.txt')
-main_food =  menu(food, 'основные блюда:', 'выберите основное блюдо: ')
-my_salad = menu(salads, 'салаты:', 'выберите салат: ')
-my_drink = menu(drinks, 'напитки:', 'выберите напиток: ')
-print('ваш заказ:')
-print('основное блюдо: {}'.format(main_food))
-print('салаты: {}'.format(my_salad))
-print('напиток: {}'.format(my_drink))
 
 
 
